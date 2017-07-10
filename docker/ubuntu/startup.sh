@@ -6,4 +6,8 @@
 # Start ssh deamon in foreground
 /usr/sbin/sshd -D &
 
+# sleep infinity
+echo "Starting infinity loop!"
+while sleep 3600; do :; done
+
 exec "$@"
