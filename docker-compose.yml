@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  pipeline:
+    image: ldynia/pipeline:1.0
+    build: docker/ubuntu
+    restart: always
+    hostname: pipeline
+    container_name: pipeline_1.0
+
+  codons:
+    image: ldynia/codon:1.0
+    build: pipes/codon-counter
+    restart: always
+    hostname: codon
+    container_name: codon_1.0
+
+  nucleotides:
+    image: ldynia/nucleotide:1.0
+    build: pipes/nucleotide-counter
+    restart: always
+    hostname: nucleotide
+    container_name: nucleotide_1.0

@@ -1,0 +1,8 @@
+[submodule "pipes/codon-counter"]
+	path = pipes/codon-counter
+	url = https://github.com/ldynia/codon-counter
+	branch = 1.0
+[submodule "pipes/nucleotide-counter"]
+	path = pipes/nucleotide-counter
+	url = https://github.com/ldynia/nucleotide-counter
+	branch = 1.0
