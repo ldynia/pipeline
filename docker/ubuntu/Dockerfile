@@ -22,8 +22,10 @@ RUN apt install -y \
 # Remove temp and cached files
 RUN rm  -rf /tmp/* /var/cache/apt/*
 
-# Generate ssh keys
+# Setup SSH
 RUN ssh-keygen -A
+RUN ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 RUN mkdir -p /var/run/sshd
 
 # Install slurm-pipeline

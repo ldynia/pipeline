@@ -1,13 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
-# Add webapp's key to pipline's authorized_keys
-# tail /srv/www/compare/htdocs/docker/shared_data/id_rsa.pub > /root/.ssh/authorized_keys
+# Execute logic when image is run by docker-compose
+if [ ! -z "$DOCKER_COMPOSE" ]; then
+  # Add piep/container to known_hosts by looping over evry pipe/containers
+  for pipe in $(echo $PIPES | tr "," "\n")
+  do
+    # File exist
+    if [ -f /root/.ssh/known_hosts ]; then
+      # Is pipe to be found in known_hosts
+      if [ grep -q "$pipe" /root/.ssh/known_hosts ]; then
+        # Do noting
+        echo "pipe found in known_hosts"
+      else
+        # Pipe not found -add pipe to known_hosts
+        ssh-keyscan  "$pipe" >> /root/.ssh/known_hosts
+      fi
+    else
+      # File does not exist -create file with pipe
+      ssh-keyscan  "$pipe" >> /root/.ssh/known_hosts
+    fi
+  done
+fi
 
-# Start ssh deamon in foreground
-/usr/sbin/sshd -D &
-
-# sleep infinity
-echo "Starting infinity loop!"
-while sleep 3600; do :; done
-
-exec "$@"
+echo "Start ssh deamon in foreground"
+/usr/sbin/sshd -D

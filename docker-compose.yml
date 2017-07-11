@@ -9,6 +9,12 @@ services:
     hostname: pipeline
     container_name: pipeline
     command: bash /docker/startup.sh
+    volumes:
+      - ssh:/root/.ssh
+    environment:
+      # container names
+      PIPES: "codon,nucleotide"
+      DOCKER_COMPOSE: 'true'
 
   codons:
     image: ldynia/codon:1.0
@@ -16,7 +22,9 @@ services:
     restart: always
     hostname: codon
     container_name: codon
-    command: sh /app/scripts/startup.sh
+    command: bash /docker/startup.sh
+    volumes:
+      - ssh:/root/.ssh
 
   nucleotides:
     image: ldynia/nucleotide:1.0
@@ -24,4 +32,9 @@ services:
     restart: always
     hostname: nucleotide
     container_name: nucleotide
-    command: sh /app/scripts/startup.sh
+    command: bash /docker/startup.sh
+    volumes:
+      - ssh:/root/.ssh
+
+volumes:
+  ssh:
