@@ -9,14 +9,13 @@ if [ ! -z "$DOCKER_COMPOSE" ]; then
     if [ -f /root/.ssh/known_hosts ]; then
       # Is pipe to be found in known_hosts
       if [ grep -q "$pipe" /root/.ssh/known_hosts ]; then
-        # Do noting
-        echo "pipe found in known_hosts"
+        echo "Do noting for pipe found in known_hosts"
       else
-        # Pipe not found -add pipe to known_hosts
+        echo "Pipe not found -add pipe to known_hosts"
         ssh-keyscan  "$pipe" >> /root/.ssh/known_hosts
       fi
     else
-      # File does not exist -create file with pipe
+      echo "File does not exist -create file with pipe"
       ssh-keyscan  "$pipe" >> /root/.ssh/known_hosts
     fi
   done
