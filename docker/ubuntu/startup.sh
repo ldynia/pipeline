@@ -8,7 +8,7 @@ if [ ! -z "$DOCKER_COMPOSE" ]; then
     # File exist
     if [ -f /root/.ssh/known_hosts ]; then
       # Is pipe to be found in known_hosts
-      if [ grep -q "$pipe" /root/.ssh/known_hosts ]; then
+      if grep -q $pipe /root/.ssh/known_hosts ; then
         echo "Do noting for pipe found in known_hosts"
       else
         echo "Pipe not found -add pipe to known_hosts"
