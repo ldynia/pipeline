@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/ash
 
 # Execute logic when image is run by docker-compose
 if [ ! -z "$DOCKER_COMPOSE" ]; then
