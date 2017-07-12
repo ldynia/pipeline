@@ -11,7 +11,7 @@ services:
     command: bash /docker/startup.sh
     volumes:
       - ssh:/root/.ssh
-      - ./results:/data
+      - ./results:/results
     environment:
       # container names
       PIPES: "codon,nucleotide"
@@ -26,7 +26,7 @@ services:
     command: bash /docker/startup.sh
     volumes:
       - ssh:/root/.ssh
-      - ./results:/data
+      - ./results:/results
 
   nucleotides:
     image: ldynia/nucleotide:1.0
@@ -37,7 +37,7 @@ services:
     command: bash /docker/startup.sh
     volumes:
       - ssh:/root/.ssh
-      - ./results:/data
+      - ./results:/results
 
 volumes:
   ssh:
