@@ -13,6 +13,7 @@ services:
       - ssh:/root/.ssh
       - ./data:/pipeline/data
       - ./results:/pipeline/results
+      - ./manager:/pipeline/manager
     environment:
       # container names
       PIPES: "codon,nucleotide"
