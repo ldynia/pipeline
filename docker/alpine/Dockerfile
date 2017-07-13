@@ -2,6 +2,9 @@ FROM alpine:3.6
 
 MAINTAINER Lukasz Dynowski ludd@bioinformatics.dtu.dk
 
+# Create pipline common directories
+VOLUME ["/pipeline/data", "/pipeline/results"]
+
 # Add startup script
 ADD startup.sh /docker/startup.sh
 

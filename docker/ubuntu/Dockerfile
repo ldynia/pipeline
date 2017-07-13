@@ -1,6 +1,9 @@
-FROM ubuntu:17.10
+FROM debian:9.0
 
 MAINTAINER Lukasz Dynowski ludd@bioinformatics.dtu.dk
+
+# Create pipline common directories
+VOLUME ["/pipeline/data", "/pipeline/results"]
 
 # Add startup script
 ADD startup.sh /docker/startup.sh
@@ -17,7 +20,8 @@ RUN apt install -y \
   make \
   python \
   python-pip \
-  ssh
+  ssh \
+  wget
 
 # Remove temp and cached files
 RUN rm  -rf /tmp/* /var/cache/apt/*
