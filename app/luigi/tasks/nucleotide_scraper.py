@@ -10,11 +10,8 @@ class NucleotideScraperTask(luigi.Task):
     program = "ntcounter"
     timestamp = str(int(time.time()))
 
-    def requires(self):
-        return []
-
     def output(self):
-        return luigi.LocalTarget("/pipeline/results/%s.json" % self.timestamp)
+        return luigi.LocalTarget("/pipeline/results/{0}_{1}.json".format(self.program, self.timestamp))
 
     def run(self):
         if Network().ping(self.hostname):
