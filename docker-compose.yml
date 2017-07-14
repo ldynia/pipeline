@@ -11,9 +11,9 @@ services:
     command: bash /docker/startup.sh
     volumes:
       - ssh:/root/.ssh
+      - ./app:/app
       - ./data:/pipeline/data
       - ./results:/pipeline/results
-      - ./manager:/pipeline/manager
     environment:
       # container names
       PIPES: "codon,nucleotide"

@@ -4,7 +4,7 @@ from utility.network import Network
 from luigi.contrib.ssh import RemoteContext
 
 
-class NucleotideScraperTask(luigi.Task):
+class NucleotideTask(luigi.Task):
 
     hostname = "nucleotide"
     program = "ntcounter"
@@ -17,7 +17,5 @@ class NucleotideScraperTask(luigi.Task):
         if not Network().ping(self.hostname):
             raise Exception("Cann't ping '" + self.hostname + "' host!")
 
-        COMMAND = self.program + " -f /app/data/dna.fsa -o " + self.output().path
-        output = RemoteContext(self.hostname).check_output([COMMAND])
-        with self.output().open('w') as output_file:
-            output_file.write(output)
+        COMMAND = self.program + " -f /app/data/dna.fsa -o /pipeline/results/" + self.program + "_" + self.timestamp
+        RemoteContext(self.hostname).check_output([COMMAND])
