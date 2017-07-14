@@ -11,7 +11,7 @@ class NucleotideTask(luigi.Task):
     timestamp = str(int(time.time()))
 
     def output(self):
-        return luigi.LocalTarget("/pipeline/results/{0}_{1}.json".format(self.program, self.timestamp))
+        return luigi.LocalTarget("/pipeline/results/%s_%s/output.json" % (self.program, self.timestamp))
 
     def run(self):
         if not Network().ping(self.hostname):

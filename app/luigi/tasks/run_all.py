@@ -1,6 +1,6 @@
 import luigi
-from codon_scraper import CodonTask
-from nucleotide_scraper import NucleotideTask
+from codon import CodonTask
+from nucleotide import NucleotideTask
 
 
 class RunAllTask(luigi.Task):
@@ -10,8 +10,8 @@ class RunAllTask(luigi.Task):
 
     def output(self):
         # TODO update scraped results to database
-        pass
+        return
 
     def run(self):
         # TODO scrap all results
-        pass
+        return

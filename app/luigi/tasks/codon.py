@@ -10,6 +10,9 @@ class CodonTask(luigi.Task):
     program = "cdncounter"
     timestamp = str(int(time.time()))
 
+    def output(self):
+        return luigi.LocalTarget("/pipeline/results/%s_%s/output.json" % (self.program, self.timestamp))
+
     def run(self):
         if not Network().ping(self.hostname):
             raise Exception("Cann't ping '" + self.hostname + "' host!")
