@@ -14,7 +14,10 @@ class CodonScraperTask(luigi.Task):
         return luigi.LocalTarget("/pipeline/results/{0}_{1}.json".format(self.program, self.timestamp))
 
     def run(self):
-        if Network().ping(self.hostname):
-            output = RemoteContext(self.hostname).check_output([self.program + " /app/data/dna.fsa"])
-            with self.output().open('w') as output_file:
-                output_file.write(output)
+        if not Network().ping(self.hostname):
+            raise Exception("Cann't ping '" + self.hostname + "' host!")
+
+        COMMAND = self.program + " -f /app/data/dna.fsa -o " + self.output().path
+        output = RemoteContext(self.hostname).check_output([COMMAND])
+        with self.output().open('w') as output_file:
+            output_file.write(output)
