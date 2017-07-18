@@ -18,8 +18,8 @@ RUN apt install -y \
   gcc \
   git \
   make \
-  python \
-  python-pip \
+  python3 \
+  python3-pip \
   ssh \
   wget
 
@@ -34,15 +34,16 @@ RUN mkdir -p /var/run/sshd
 
 # Install slurm-pipeline
 RUN git clone https://github.com/acorg/slurm-pipeline
-RUN pip install -r /slurm-pipeline/requirements-2.txt
-RUN cd slurm-pipeline && python setup.py install
+RUN pip3 install -r /slurm-pipeline/requirements-3.txt
+RUN cd slurm-pipeline && python3 setup.py install
 
 # Install next flow
 RUN wget -qO- get.nextflow.io | bash
 RUN mv nextflow /usr/local/bin
 
 # Install luigi
-RUN pip install luigi==2.6.2
+RUN pip3 install luigi==2.6.2
+RUN pip3 install snakemake==3.13.3
 
 EXPOSE 22
 

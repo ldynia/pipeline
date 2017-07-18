@@ -19,3 +19,14 @@ Links:
 ```
 $ nextflow /app/next_flow/pipeline.nf
 ```
+
+# Snakemake
+
+Links:
+* [docs](https://snakemake.readthedocs.io/en/stable/)
+* [bitbucket](https://bitbucket.org/snakemake/snakemake/src)
+
+```
+$ cd /app/snakemake
+$ snakemake $(snakemake -l)
+```

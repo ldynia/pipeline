@@ -1,0 +1,19 @@
+rule codon:
+    input:
+        "/pipeline/data/dna.fsa"
+    output:
+        "results/codons.json"
+    # script:
+    #     "scripts/codon.py"
+    shell:
+        "ssh codon cdncounter -f {input} > {output}"
+
+rule nucleotide:
+    input:
+        "/pipeline/data/dna.fsa"
+    output:
+        "results/nucleotides.json"
+    # script:
+    #     "scripts/nucleotide.py"
+    shell:
+        "ssh nucleotide ntcounter -f {input} > {output}"
