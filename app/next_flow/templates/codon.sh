@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ssh codon cdncounter -f /app/data/dna.fsa > codon.json
+ssh codon cdncount -f /app/data/dna.fsa > /pipeline/results/cdncount.json.out

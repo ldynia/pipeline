@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ssh codon cdncounter -f /app/data/dna.fsa
+ssh codon cdncount -f /app/data/dna.fsa

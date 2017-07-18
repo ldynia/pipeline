@@ -1,6 +1,6 @@
 import luigi
-from codon import CodonTask
-from nucleotide import NucleotideTask
+from tasks.codon import CodonTask
+from tasks.nucleotide import NucleotideTask
 
 
 class RunAllTask(luigi.Task):

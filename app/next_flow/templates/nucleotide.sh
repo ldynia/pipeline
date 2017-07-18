@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ssh nucleotide ntcounter -f /app/data/dna.fsa > nucleotide.json
+ssh nucleotide ntcount -f /app/data/dna.fsa > /pipeline/results/ntcount.json.out
