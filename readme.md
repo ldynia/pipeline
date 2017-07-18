@@ -17,7 +17,8 @@ Links:
 * [github](https://github.com/nextflow-io/nextflow)
 
 ```
-$ nextflow /app/next_flow/pipeline.nf
+$ cd /app/next_flow
+$ nextflow pipeline.nf
 ```
 
 # Snakemake
@@ -29,4 +30,14 @@ Links:
 ```
 $ cd /app/snakemake
 $ snakemake $(snakemake -l)
+```
+
+# Slurm
+
+Links:
+* [github](https://github.com/acorg/slurm-pipeline)
+
+```
+$ cd /app/slurm-pipeline
+$ slurm-pipeline.py -s pipeline.json > status.json
 ```

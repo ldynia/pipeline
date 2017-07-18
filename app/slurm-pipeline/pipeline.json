@@ -1,0 +1,14 @@
+{
+  "steps": [
+    {
+      "name": "codon",
+      "script": "scripts/codon.py",
+      "stdout": "results/codon_out.json"
+    },
+    {
+      "name": "nucleotide",
+      "script": "scripts/nucleotide.py",
+      "stdout": "results/nucleotide_out.json"
+    }
+  ]
+}
