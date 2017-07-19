@@ -18,9 +18,10 @@ In order to run the project below stack has to be installed.
 
 # Implementation of the architecture
 We abstract each element of the architecture to a single microservice using docker. This way we containerize our architectures which translates to below maping.
-* **Pipline Master** == **Pipline** container
-* **Codon Pipe** == **Codon** container
-* **Nucleotide Pipe** == **Nucleotide** container
+
+- **Pipline Master** == **Pipline** container
+- **Codon Pipe** == **Codon** container
+- **Nucleotide Pipe** == **Nucleotide** container
 
 We connect all containers with the `docekr-compose.yml` file.
 
