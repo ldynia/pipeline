@@ -1,17 +1,39 @@
 # Introduction
-This project is a road map that demonstrates how to use common workflow manager tools ([Luigi](https://luigi.readthedocs.io/en/latest/index.html), [NextFlow](https://www.nextflow.io/docs/latest/index.html), [Snakemake](https://snakemake.readthedocs.io/en/stable/) and [Slurm-Pipeline](https://github.com/acorg/slurm-pipeline)) to build a data pipline.
+This project is a road map that demonstrates how to use common workflow tools ([Luigi](https://luigi.readthedocs.io/en/latest/index.html), [NextFlow](https://www.nextflow.io/docs/latest/index.html), [Snakemake](https://snakemake.readthedocs.io/en/stable/) and [Slurm-Pipeline](https://github.com/acorg/slurm-pipeline)) to build a data pipline.
 
-What's special about this project is the architecture. Namely, abstracting pipes into individual microservices, and orchestrating (gluing) it via master service -which as well is a microservice.
+What's special about this project is the architecture. Namely, abstracting pipes into individual microservices, and orchestrating it with master microservice service.
 
-## Installation
+## Requirements
+In order to run the project below stack has to be installed.
+* [git](https://git-scm.com/downloads)
+* [docker](https://docs.docker.com/engine/installation/)
+* [docker-composer](https://docs.docker.com/compose/install/)
 
+# Architecture
+![architecture](docs/img/architecture.png)
+
+**Pipline Master** - an orchestrator that binds all pipes.
+**Codon Pipe** - a pipe that has `cdncounter` program that counts codons in a *".fsa"* file.
+**Nucleotide Pipe** - a pipe that has `ntcounter` program that counts nucleotides in a *".fsa"* file.
+
+# Implementation of the architecture
+We abstract each element of the architecture to a single microservice using docker. This way we containerize our architectures which translates to below maping.
+* **Pipline Master** == **Pipline** container
+* **Codon Pipe** == **Codon** container
+* **Nucleotide Pipe** == **Nucleotide** container
+
+We connect all containers with the `docekr-compose.yml` file.
+
+# Installation
+
+## Cloning the project
 ```bash
 $ cd ~
 $ git clone --recursive https://github.com/ldynia/pipeline.git
 $ cd pipeline
 ```
 
-## Build images / start up containers.
+## Build images / Start up containers.
 ```Bash
 $ docker-compose up -d
 ```
@@ -31,7 +53,7 @@ $ docker exec -it pipeline bash
 ```
 
 # Workflow Managers
-To run any of below workflows managers execute approiated to workflow command. Output of a command will be found in `/pipline/results/` path.
+To run any of below workflows managers execute approiated to workflow command. Output of a command will be found in `/pipline/results/` path. **Note:** Remember to remove output files after running each command.
 
 ## Luigi
 
