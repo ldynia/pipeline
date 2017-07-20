@@ -1,7 +1,7 @@
 # Introduction
 This project is a road map that demonstrates how to use common workflow tools ([Luigi](https://luigi.readthedocs.io/en/latest/index.html), [NextFlow](https://www.nextflow.io/docs/latest/index.html), [Snakemake](https://snakemake.readthedocs.io/en/stable/) and [Slurm-Pipeline](https://github.com/acorg/slurm-pipeline)) to build a data pipline.
 
-What's special about this project is the architecture. Namely, abstracting pipes into individual microservices, and orchestrating it with master microservice service.
+What's special about this project is the architecture. Namely, abstracting pipes into an individual microservices, and orchestrating it with a master microservice.
 
 ## Requirements
 In order to run the project below stack has to be installed.
@@ -18,9 +18,10 @@ In order to run the project below stack has to be installed.
 
 # Implementation of the architecture
 We abstract each element of the architecture to a single microservice using docker. This way we containerize our architectures which translates to below maping.
-* **Pipline Master** == **Pipline** container
-* **Codon Pipe** == **Codon** container
-* **Nucleotide Pipe** == **Nucleotide** container
+
+- **Pipline Master** == **Pipline** container
+- **Codon Pipe** == **Codon** container
+- **Nucleotide Pipe** == **Nucleotide** container
 
 We connect all containers with the `docekr-compose.yml` file.
 
