@@ -12,9 +12,9 @@ In order to run the project below stack has to be installed.
 # Architecture
 ![architecture](docs/img/architecture.png)
 
-**Pipline Master** - an orchestrator that binds all pipes.
-**Codon Pipe** - a pipe that has `cdncounter` program that counts codons in a *".fsa"* file.
-**Nucleotide Pipe** - a pipe that has `ntcounter` program that counts nucleotides in a *".fsa"* file.
+- **Pipline Master** - an orchestrator that binds all pipes.
+- **Codon Pipe** - a pipe that has `cdncounter` program that counts codons in a *".fsa"* file.
+- **Nucleotide Pipe** - a pipe that has `ntcounter` program that counts nucleotides in a *".fsa"* file.
 
 # Implementation of the architecture
 We abstract each element of the architecture to a single microservice using docker. This way we containerize our architectures which translates to below maping.
