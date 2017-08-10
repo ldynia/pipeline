@@ -42,10 +42,10 @@ $ docker-compose up -d
 ## Investigate running containers
 ```Bash
 $ docker ps
-CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                                                                                  NAMES
-6edf957143ec        ldynia/pipeline:1.0     "/docker/startup.s..."   5 seconds ago       Up 3 seconds        22/tcp                                                                                 pipeline
-5b8e8b4f3312        ldynia/codon:1.0        "sh /docker/startu..."   5 seconds ago       Up 4 seconds                                                                                               codon
-5c09a1969e1d        ldynia/nucleotide:1.0   "sh /docker/startu..."   5 seconds ago       Up 4 seconds                                                                                               nucleotide
+CONTAINER ID  IMAGE                 COMMAND                 CREATED       STATUS        PORTS   NAMES
+6edf957143ec  ldynia/pipeline:1.0   "/docker/startup.s..."  5 seconds ago Up 3 seconds  22/tcp  pipeline
+5b8e8b4f3312  ldynia/codon:1.0      "sh /docker/startu..."  5 seconds ago Up 4 seconds          codon
+5c09a1969e1d  ldynia/nucleotide:1.0 "sh /docker/startu..."  5 seconds ago Up 4 seconds          nucleotide
 ```
 
 ## Hook into master container

@@ -1,5 +1,6 @@
 import time
 import luigi
+from tasks.random import RandomTask
 from utility.network import Network
 from luigi.contrib.ssh import RemoteContext
 
@@ -20,5 +21,10 @@ class NucleotideTask(luigi.Task):
 
         COMMAND = self.program + " -f /pipeline/data/dna.fsa"
         output = RemoteContext(self.hostname).check_output([COMMAND])
-        with open("/pipeline/results/ntcount.json.out", "w") as data_file:
+
+        filename = "/pipeline/results/%s" % self.foutput
+        with open(filename, "w") as data_file:
             data_file.write(str(output)[2:-3])
+
+        if 'true' in str(output):
+            yield [RandomTask()]

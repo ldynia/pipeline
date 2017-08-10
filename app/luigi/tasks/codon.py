@@ -20,5 +20,7 @@ class CodonTask(luigi.Task):
 
         COMMAND = self.program + " -f /pipeline/data/dna.fsa"
         output = RemoteContext(self.hostname).check_output([COMMAND])
-        with open("/pipeline/results/cdncount.json.out", "w") as data_file:
+
+        filename = "/pipeline/results/%s" % self.foutput
+        with open(filename, "w") as data_file:
             data_file.write(str(output)[2:-3])
