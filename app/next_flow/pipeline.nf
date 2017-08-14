@@ -1,13 +1,13 @@
 process codon {
   output:
-    file 'codon.json' into codons
+    file 'cdncount.json.out'
   script:
     template 'codon.sh'
 }
 
 process nucleotide {
   output:
-    file 'nucleotide.json' into nucleotides
+    file 'ntcount.json.out'
   script:
     template 'nucleotide.sh'
 }

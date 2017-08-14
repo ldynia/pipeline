@@ -75,6 +75,7 @@ $ PYTHONPATH='.' luigi --module tasks.run_all RunAllTask --local-scheduler
 $ cd /app/next_flow
 $ nextflow pipeline.nf
 ```
+Once next-flow run successfully it will generate `work` directory at `/app/next_flow/work` please investigate output of the directory in order to find `cdncount.json.out` and `ntcount.json.out` files.
 
 ## Snakemake
 

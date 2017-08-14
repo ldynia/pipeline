@@ -15,8 +15,6 @@ services:
       - ./data:/pipeline/data
       - ./results:/pipeline/results
     environment:
-      # container names
-      PIPES: "codon,nucleotide"
       DOCKER_COMPOSE: 'true'
 
   codons:

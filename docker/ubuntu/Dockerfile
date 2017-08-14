@@ -29,8 +29,10 @@ RUN rm  -rf /tmp/* /var/cache/apt/*
 # Setup SSH
 RUN ssh-keygen -A
 RUN ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
-RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
 RUN mkdir -p /var/run/sshd
+RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+RUN sed -i -e 's/HashKnownHosts yes/HashKnownHosts no/g' /etc/ssh/ssh_config
+RUN sed -i -e 's/#   StrictHostKeyChecking ask/    StrictHostKeyChecking no/g' /etc/ssh/ssh_config
 
 # Install slurm-pipeline
 RUN git clone https://github.com/acorg/slurm-pipeline

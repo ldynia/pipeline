@@ -21,6 +21,8 @@ RUN rm  -rf /tmp/* /var/cache/apk/*
 # Generate ssh keys
 RUN ssh-keygen -A
 RUN mkdir -p /var/run/sshd
+RUN cp /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+RUN sed -i -e 's/#   StrictHostKeyChecking ask/    StrictHostKeyChecking no/g' /etc/ssh/ssh_config
 
 EXPOSE 22
 
