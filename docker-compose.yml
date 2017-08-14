@@ -25,7 +25,7 @@ services:
     restart: always
     hostname: codon
     container_name: codon
-    command: bash /docker/startup.sh
+    command: ash /docker/startup.sh
     volumes:
       - ssh:/root/.ssh
       - ./data:/pipeline/data
