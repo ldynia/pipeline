@@ -1,3 +1,6 @@
+# Motivation
+Driver behind this project is to provide a methodology of building sustainable data pipelines and avoid this [problem](https://www.youtube.com/watch?v=7NzH1Gx8-4E&t=6m35s&autoplay=1).
+
 # Introduction
 This project is a road map that demonstrates how to use common workflow tools ([Luigi](https://luigi.readthedocs.io/en/latest/index.html), [NextFlow](https://www.nextflow.io/docs/latest/index.html), [Snakemake](https://snakemake.readthedocs.io/en/stable/) and [Slurm-Pipeline](https://github.com/acorg/slurm-pipeline)) to build a data pipline.
 
